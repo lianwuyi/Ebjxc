@@ -1,0 +1,11 @@
+*-- quit.prg
+
+CLOSE DATABASES ALL
+CLOSE TABLES ALL
+
+SELECT 0
+USE ..\data\mmk1.dbf EXCLUSIVE
+ZAP
+USE
+
+QUIT

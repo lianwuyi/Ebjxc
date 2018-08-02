@@ -1,0 +1,82 @@
+
+SET SAFETY OFF    && 决定改写已有文件之前是否显示对话框
+SET TALK OFF      && 决定 Visual FoxPro 是否显示命令结果
+SET CENT ON       && 显示年份为4位
+SET DATE ANSI     && yy.mm.dd (年月日格式)
+SET DELETE ON     && ON 为使用范围子句处理记录(包括在相关表中的记录)的命令忽略标有删除标记的记录。
+SET EXCL OFF      && (私有数据工作期的默认方式)允许网络上的任何用户共享和修改网络上打开的表。
+SET HELP ON       && 允许打开帮助
+SET MULTILOCKS ON && 允许缓冲
+
+* SET DEFAULT TO c:\
+* 设置程序主目录
+RELEASE gcMainPath
+PUBLIC gcMainPath
+
+gcMainPath = Sys(5)+"\" 
+Set Default To &gcMainPath 
+
+* gcMainPath = "c:\"
+CD "\ebjxc\"
+SET PATH TO;DATA;FORMS;LIBS;MENUS;PROGS;BMP;EXCEL
+
+RELEASE cPATHS,c版本号,c公司,c密码次数,c电话,c地址,c技术支持,c到期
+PUBLIC cPATHS,c版本号,c公司,c密码次数,c电话,c地址,c技术支持,c到期
+SELECT 0
+USE ..\DATA\sys1.DBF
+cPATHS = ALLTRIM(服务器名)
+c公司 = ALLTRIM(公司名)
+c电话 = ALLTRIM(电话)
+c地址 = ALLTRIM(地址)
+c密码次数 = 1
+USE
+c版本号 = 'ebjxc进销存管理系统 1.3 180503 版'
+c技术支持 = '技术支持:  lianwuyi@163.com '
+c到期 = {^2018.10.16}
+
+*** ----------------------------------------------------
+* 防止客户过期使用软件
+IF DATE() > c到期
+  MESSAGEBOX('此软件期限已到,请与供应商购买使用权!'+CHR(13)+CHR(13)+c技术支持;
+              +chr(13),16,c版本号)
+  WAIT CLEAR
+  CLOSE All
+  CLEAR DLLS
+  CLEAR Events
+  QUIT
+  RETURN
+ENDIF
+*** -----------------------------------------------------
+
+*** 连接数据库 ***
+IF FILE(cPATHS+'mmk.dbf') = .T.
+SET REPROCESS TO 30  && 尝试锁定的次数为 30次 
+SET EXCLUSIVE ON && OFF 
+SET DELETED ON
+
+  SELECT 0
+  USE cPATHS+'mmk.dbf'
+  IF FLOCK()
+    *WAIT WINDOW "提示：正在连接数据库..." NOWAIT TIMEOUT 3
+    COPY all to ..\test.dbf 
+    USE 
+  
+    SELECT 1
+    USE ..\data\mmk1.dbf 
+    ZAP
+    APPEND FROM ..\test.dbf
+    USE 
+    DELETE FILE ..\test.dbf 
+    *WAIT WINDOW "提示：查询成功！" NOWAIT TIMEOUT 3
+  ELSE 
+    USE 
+    WAIT WINDOW "错误：连接数据库失败，请稍后再试……" TIMEOUT 4
+    QUIT 
+    RETURN
+  ENDIF 
+  
+ELSE 
+  WAIT WINDOW "错误：找不到数据库文件，请稍后再试……" TIMEOUT 4
+  QUIT 
+  RETURN
+ENDIF

@@ -20,8 +20,8 @@ Set Default To &gcMainPath
 CD "\ebjxc\"
 SET PATH TO;DATA;FORMS;LIBS;MENUS;PROGS;BMP;EXCEL
 
-RELEASE cPATHS,c版本号,c公司,c密码次数,c电话,c地址,c技术支持,c到期
-PUBLIC cPATHS,c版本号,c公司,c密码次数,c电话,c地址,c技术支持,c到期
+RELEASE cPATHS,c版本号,c公司,c密码次数,c电话,c地址,c技术支持,c到期,c数据库
+PUBLIC cPATHS,c版本号,c公司,c密码次数,c电话,c地址,c技术支持,c到期,c数据库
 SELECT 0
 USE ..\DATA\sys1.DBF
 cPATHS = ALLTRIM(服务器名)
@@ -30,9 +30,9 @@ c电话 = ALLTRIM(电话)
 c地址 = ALLTRIM(地址)
 c密码次数 = 1
 USE
-c版本号 = 'ebjxc进销存管理系统 1.3 180503 版'
+c版本号 = 'Ebjxc进销存管理系统 1.4 180828 版'
 c技术支持 = '技术支持:  lianwuyi@163.com '
-c到期 = {^2018.10.16}
+c到期 = {^2020.12.31}
 
 *** ----------------------------------------------------
 * 防止客户过期使用软件

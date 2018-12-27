@@ -1,0 +1,45 @@
+********************************************
+*  货币金额小写转大写自定义函数
+*  南海居士 撰写代码
+*********************************************
+PARA sz
+IF LEN(ALLTRIM(str(sz,18,2)))>=18
+=MESSAGEBOX("超出计算限额（拾万亿）",64)
+RETURN
+endi
+PRIV ss,sc,le,cc
+STOR  '' TO ss,sc,cc
+sc=ALLT(STR(INT(sz*100),16))
+STOR LEN(sc) TO le
+ss=RIGHT('拾万仟佰拾亿仟佰拾万仟佰拾元角分',le*2)
+sc=STRT(sc,'0','零')
+sc=STRT(sc,'1','壹')
+sc=STRT(sc,'2','贰')
+sc=STRT(sc,'3','叁')
+sc=STRT(sc,'4','肆')
+sc=STRT(sc,'5','伍')
+sc=STRT(sc,'6','陆')
+sc=STRT(sc,'7','柒')
+sc=STRT(sc,'8','捌')
+sc=STRT(sc,'9','玖')
+FOR i=1 TO le
+   cc=cc+SUBS(sc,i*2-1,2)+SUBS(ss,i*2-1,2)
+ENDF
+cc=STRT(cc,'零仟','零')
+cc=STRT(cc,'零佰','零')
+cc=STRT(cc,'零拾','零')
+cc=STRT(cc,'零零零零','零')
+cc=STRT(cc,'零零零','零')
+cc=STRT(cc,'零零','零')
+cc=STRT(cc,'零亿','亿零')
+cc=STRT(cc,'零零','零')
+cc=STRT(cc,'零万','万零')
+cc=STRT(cc,'亿万','亿')
+cc=STRT(cc,'零亿','亿零')
+cc=STRT(cc,'零零零','零')
+cc=STRT(cc,'零零','零')
+cc=STRT(cc,'零元','元')
+cc=STRT(cc,'零分','整')
+cc=STRT(cc,'零角','零')
+cc=STRT(cc,'零整','整')
+RETU cc

@@ -1,0 +1,5 @@
+20180828升级说明
+1、增加 费用报销单 模块，（专给街道办使用）。
+2、本地data文件夹新增 fybxd.dbf，fybxd1.dbf，fybxdp.dbf
+3、ebjxcdb文件夹新增 fybxd.dbf  hm.dbf新增【报销单ID】字段。
+4、ebjxcdb文件夹jck.dbf 新增【最近进价】字段。

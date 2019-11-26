@@ -1,12 +1,12 @@
 *       *********************************************************
 *       *                                                         
-*       * 12/27/18              EBJXC.MPR               16:34:00  
+*       * 11/06/19              EBJXC.MPR               20:13:19  
 *       *                                                         
 *       *********************************************************
 *       *                                                         
 *       * Author's Name                                           
 *       *                                                         
-*       * Copyright (C) 2018 Company Name                         
+*       * Copyright (C) 2019 Company Name                         
 *       * Address                                                 
 *       * City,     Zip                                           
 *       *                                                         
@@ -29,21 +29,21 @@ SET SYSMENU AUTOMATIC
 DEFINE PAD _msm_file OF _MSYSMENU PROMPT "系统设置(\<A)" COLOR SCHEME 3 ;
 	NEGOTIATE  LEFT, NONE ;
 	KEY ALT+F, ""
-DEFINE PAD _5dj0ziazr OF _MSYSMENU PROMPT "基础资料(\<J)" COLOR SCHEME 3 ;
+DEFINE PAD _5mb17cclz OF _MSYSMENU PROMPT "基础资料(\<J)" COLOR SCHEME 3 ;
 	KEY ALT+J, ""
-DEFINE PAD _5dj0ziazs OF _MSYSMENU PROMPT "库存管理(\<K)" COLOR SCHEME 3 ;
+DEFINE PAD _5mb17ccm0 OF _MSYSMENU PROMPT "库存管理(\<K)" COLOR SCHEME 3 ;
 	KEY ALT+K, ""
-DEFINE PAD _5dj0ziazt OF _MSYSMENU PROMPT "财务管理(\<C)" COLOR SCHEME 3 ;
+DEFINE PAD _5mb17ccm1 OF _MSYSMENU PROMPT "财务管理(\<C)" COLOR SCHEME 3 ;
 	KEY ALT+C, ""
-DEFINE PAD _5dj0ziazu OF _MSYSMENU PROMPT "转仓盘点(\<Z)" COLOR SCHEME 3 ;
+DEFINE PAD _5mb17ccm2 OF _MSYSMENU PROMPT "转仓盘点(\<Z)" COLOR SCHEME 3 ;
 	KEY ALT+Z, ""
 DEFINE PAD _msm_systm OF _MSYSMENU PROMPT "关于(\<H)" COLOR SCHEME 3 ;
 	KEY ALT+H, ""
 ON PAD _msm_file OF _MSYSMENU ACTIVATE POPUP 系统设置a
-ON PAD _5dj0ziazr OF _MSYSMENU ACTIVATE POPUP 基础资料j
-ON PAD _5dj0ziazs OF _MSYSMENU ACTIVATE POPUP 库存管理k
-ON PAD _5dj0ziazt OF _MSYSMENU ACTIVATE POPUP 财务管理c
-ON PAD _5dj0ziazu OF _MSYSMENU ACTIVATE POPUP 转仓盘点z
+ON PAD _5mb17cclz OF _MSYSMENU ACTIVATE POPUP 基础资料j
+ON PAD _5mb17ccm0 OF _MSYSMENU ACTIVATE POPUP 库存管理k
+ON PAD _5mb17ccm1 OF _MSYSMENU ACTIVATE POPUP 财务管理c
+ON PAD _5mb17ccm2 OF _MSYSMENU ACTIVATE POPUP 转仓盘点z
 ON PAD _msm_systm OF _MSYSMENU ACTIVATE POPUP 关于h
 
 DEFINE POPUP 系统设置a MARGIN RELATIVE SHADOW COLOR SCHEME 4
@@ -57,7 +57,7 @@ DEFINE BAR 7 OF 系统设置a PROMPT "\-"
 DEFINE BAR 8 OF 系统设置a PROMPT "退出系统"
 DEFINE BAR 9 OF 系统设置a PROMPT "\-"
 ON SELECTION BAR 2 OF 系统设置a ;
-	DO _5dj0ziazv ;
+	DO _5mb17ccm3 ;
 	IN LOCFILE("\EBJXC\MENUS\EBJXC" ,"MPX;MPR|FXP;PRG" ,"WHERE is EBJXC?")
 ON SELECTION BAR 4 OF 系统设置a DO form ..\FORMS\czysz.scx
 ON SELECTION BAR 5 OF 系统设置a do form ..\forms\backup.scx
@@ -84,25 +84,25 @@ DEFINE BAR 10 OF 基础资料j PROMPT "产品代码查询" ;
 	SKIP FOR c产品查询<>"1"
 DEFINE BAR 11 OF 基础资料j PROMPT "\-"
 ON SELECTION BAR 2 OF 基础资料j ;
-	DO _5dj0ziazw ;
+	DO _5mb17ccm4 ;
 	IN LOCFILE("\EBJXC\MENUS\EBJXC" ,"MPX;MPR|FXP;PRG" ,"WHERE is EBJXC?")
 ON SELECTION BAR 3 OF 基础资料j ;
-	DO _5dj0ziazx ;
+	DO _5mb17ccm5 ;
 	IN LOCFILE("\EBJXC\MENUS\EBJXC" ,"MPX;MPR|FXP;PRG" ,"WHERE is EBJXC?")
 ON SELECTION BAR 5 OF 基础资料j ;
-	DO _5dj0ziazy ;
+	DO _5mb17ccm6 ;
 	IN LOCFILE("\EBJXC\MENUS\EBJXC" ,"MPX;MPR|FXP;PRG" ,"WHERE is EBJXC?")
 ON SELECTION BAR 6 OF 基础资料j ;
-	DO _5dj0ziazz ;
+	DO _5mb17ccm7 ;
 	IN LOCFILE("\EBJXC\MENUS\EBJXC" ,"MPX;MPR|FXP;PRG" ,"WHERE is EBJXC?")
 ON SELECTION BAR 8 OF 基础资料j ;
-	DO _5dj0zib00 ;
+	DO _5mb17ccm8 ;
 	IN LOCFILE("\EBJXC\MENUS\EBJXC" ,"MPX;MPR|FXP;PRG" ,"WHERE is EBJXC?")
 ON SELECTION BAR 9 OF 基础资料j ;
-	DO _5dj0zib01 ;
+	DO _5mb17ccm9 ;
 	IN LOCFILE("\EBJXC\MENUS\EBJXC" ,"MPX;MPR|FXP;PRG" ,"WHERE is EBJXC?")
 ON SELECTION BAR 10 OF 基础资料j ;
-	DO _5dj0zib02 ;
+	DO _5mb17ccma ;
 	IN LOCFILE("\EBJXC\MENUS\EBJXC" ,"MPX;MPR|FXP;PRG" ,"WHERE is EBJXC?")
 
 DEFINE POPUP 库存管理k MARGIN RELATIVE SHADOW COLOR SCHEME 4
@@ -120,24 +120,28 @@ DEFINE BAR 8 OF 库存管理k PROMPT "\-"
 DEFINE BAR 9 OF 库存管理k PROMPT "出库录入"
 DEFINE BAR 10 OF 库存管理k PROMPT "出库查询" ;
 	SKIP FOR c出库查询<>"1"
-DEFINE BAR 11 OF 库存管理k PROMPT "\-"
+DEFINE BAR 11 OF 库存管理k PROMPT "出库录入转开"
+DEFINE BAR 12 OF 库存管理k PROMPT "\-"
 ON SELECTION BAR 2 OF 库存管理k ;
-	DO _5dj0zib03 ;
+	DO _5mb17ccmb ;
 	IN LOCFILE("\EBJXC\MENUS\EBJXC" ,"MPX;MPR|FXP;PRG" ,"WHERE is EBJXC?")
 ON SELECTION BAR 4 OF 库存管理k ;
-	DO _5dj0zib04 ;
+	DO _5mb17ccmd ;
 	IN LOCFILE("\EBJXC\MENUS\EBJXC" ,"MPX;MPR|FXP;PRG" ,"WHERE is EBJXC?")
 ON SELECTION BAR 5 OF 库存管理k ;
-	DO _5dj0zib05 ;
+	DO _5mb17ccme ;
 	IN LOCFILE("\EBJXC\MENUS\EBJXC" ,"MPX;MPR|FXP;PRG" ,"WHERE is EBJXC?")
 ON SELECTION BAR 7 OF 库存管理k ;
-	DO _5dj0zib06 ;
+	DO _5mb17ccmf ;
 	IN LOCFILE("\EBJXC\MENUS\EBJXC" ,"MPX;MPR|FXP;PRG" ,"WHERE is EBJXC?")
 ON SELECTION BAR 9 OF 库存管理k ;
-	DO _5dj0zib07 ;
+	DO _5mb17ccmg ;
 	IN LOCFILE("\EBJXC\MENUS\EBJXC" ,"MPX;MPR|FXP;PRG" ,"WHERE is EBJXC?")
 ON SELECTION BAR 10 OF 库存管理k ;
-	DO _5dj0zib08 ;
+	DO _5mb17ccmi ;
+	IN LOCFILE("\EBJXC\MENUS\EBJXC" ,"MPX;MPR|FXP;PRG" ,"WHERE is EBJXC?")
+ON SELECTION BAR 11 OF 库存管理k ;
+	DO _5mb17ccmj ;
 	IN LOCFILE("\EBJXC\MENUS\EBJXC" ,"MPX;MPR|FXP;PRG" ,"WHERE is EBJXC?")
 
 DEFINE POPUP 财务管理c MARGIN RELATIVE SHADOW COLOR SCHEME 4
@@ -151,22 +155,22 @@ DEFINE BAR 7 OF 财务管理c PROMPT "付款单查询"
 DEFINE BAR 8 OF 财务管理c PROMPT "应付款查询"
 DEFINE BAR 9 OF 财务管理c PROMPT "\-"
 ON SELECTION BAR 2 OF 财务管理c ;
-	DO _5dj0zib09 ;
+	DO _5mb17ccml ;
 	IN LOCFILE("\EBJXC\MENUS\EBJXC" ,"MPX;MPR|FXP;PRG" ,"WHERE is EBJXC?")
 ON SELECTION BAR 3 OF 财务管理c ;
-	DO _5dj0zib0a ;
+	DO _5mb17ccmm ;
 	IN LOCFILE("\EBJXC\MENUS\EBJXC" ,"MPX;MPR|FXP;PRG" ,"WHERE is EBJXC?")
 ON SELECTION BAR 4 OF 财务管理c ;
-	DO _5dj0zib0b ;
+	DO _5mb17ccmo ;
 	IN LOCFILE("\EBJXC\MENUS\EBJXC" ,"MPX;MPR|FXP;PRG" ,"WHERE is EBJXC?")
 ON SELECTION BAR 6 OF 财务管理c ;
-	DO _5dj0zib0c ;
+	DO _5mb17ccmp ;
 	IN LOCFILE("\EBJXC\MENUS\EBJXC" ,"MPX;MPR|FXP;PRG" ,"WHERE is EBJXC?")
 ON SELECTION BAR 7 OF 财务管理c ;
-	DO _5dj0zib0d ;
+	DO _5mb17ccmq ;
 	IN LOCFILE("\EBJXC\MENUS\EBJXC" ,"MPX;MPR|FXP;PRG" ,"WHERE is EBJXC?")
 ON SELECTION BAR 8 OF 财务管理c ;
-	DO _5dj0zib0e ;
+	DO _5mb17ccms ;
 	IN LOCFILE("\EBJXC\MENUS\EBJXC" ,"MPX;MPR|FXP;PRG" ,"WHERE is EBJXC?")
 
 DEFINE POPUP 转仓盘点z MARGIN RELATIVE SHADOW COLOR SCHEME 4
@@ -182,16 +186,16 @@ DEFINE BAR 6 OF 转仓盘点z PROMPT "盘点查询" ;
 	SKIP FOR c盘点查录<>"1"
 DEFINE BAR 7 OF 转仓盘点z PROMPT "\-"
 ON SELECTION BAR 2 OF 转仓盘点z ;
-	DO _5dj0zib0f ;
+	DO _5mb17ccmt ;
 	IN LOCFILE("\EBJXC\MENUS\EBJXC" ,"MPX;MPR|FXP;PRG" ,"WHERE is EBJXC?")
 ON SELECTION BAR 3 OF 转仓盘点z ;
-	DO _5dj0zib0g ;
+	DO _5mb17ccmu ;
 	IN LOCFILE("\EBJXC\MENUS\EBJXC" ,"MPX;MPR|FXP;PRG" ,"WHERE is EBJXC?")
 ON SELECTION BAR 5 OF 转仓盘点z ;
-	DO _5dj0zib0h ;
+	DO _5mb17ccmw ;
 	IN LOCFILE("\EBJXC\MENUS\EBJXC" ,"MPX;MPR|FXP;PRG" ,"WHERE is EBJXC?")
 ON SELECTION BAR 6 OF 转仓盘点z ;
-	DO _5dj0zib0i ;
+	DO _5mb17ccmx ;
 	IN LOCFILE("\EBJXC\MENUS\EBJXC" ,"MPX;MPR|FXP;PRG" ,"WHERE is EBJXC?")
 
 DEFINE POPUP 关于h MARGIN RELATIVE SHADOW COLOR SCHEME 4
@@ -207,7 +211,7 @@ ON SELECTION BAR 4 OF 关于h goApp.DoForm("About.scx")
 
 *       *********************************************************
 *       *                                                         
-*       * _5DJ0ZIAZV  ON SELECTION BAR 2 OF POPUP 系统设置a       
+*       * _5MB17CCM3  ON SELECTION BAR 2 OF POPUP 系统设置a       
 *       *                                                         
 *       * Procedure Origin:                                       
 *       *                                                         
@@ -218,7 +222,7 @@ ON SELECTION BAR 4 OF 关于h goApp.DoForm("About.scx")
 *       *                                                         
 *       *********************************************************
 *
-PROCEDURE _5dj0ziazv
+PROCEDURE _5mb17ccm3
 CLOSE ALL
 
 FOR EACH FF IN _SCREEN.Forms
@@ -230,7 +234,7 @@ do form ..\forms\Main.scx
 
 *       *********************************************************
 *       *                                                         
-*       * _5DJ0ZIAZW  ON SELECTION BAR 2 OF POPUP 基础资料j       
+*       * _5MB17CCM4  ON SELECTION BAR 2 OF POPUP 基础资料j       
 *       *                                                         
 *       * Procedure Origin:                                       
 *       *                                                         
@@ -241,7 +245,7 @@ do form ..\forms\Main.scx
 *       *                                                         
 *       *********************************************************
 *
-PROCEDURE _5dj0ziazw
+PROCEDURE _5mb17ccm4
 CLOSE ALL
 
 FOR EACH FF IN _SCREEN.Forms
@@ -254,7 +258,7 @@ do form ..\forms\客户录入.scx
 
 *       *********************************************************
 *       *                                                         
-*       * _5DJ0ZIAZX  ON SELECTION BAR 3 OF POPUP 基础资料j       
+*       * _5MB17CCM5  ON SELECTION BAR 3 OF POPUP 基础资料j       
 *       *                                                         
 *       * Procedure Origin:                                       
 *       *                                                         
@@ -265,7 +269,7 @@ do form ..\forms\客户录入.scx
 *       *                                                         
 *       *********************************************************
 *
-PROCEDURE _5dj0ziazx
+PROCEDURE _5mb17ccm5
 CLOSE ALL
 
 FOR EACH FF IN _SCREEN.Forms
@@ -278,7 +282,7 @@ do form ..\forms\客户查询.scx
 
 *       *********************************************************
 *       *                                                         
-*       * _5DJ0ZIAZY  ON SELECTION BAR 5 OF POPUP 基础资料j       
+*       * _5MB17CCM6  ON SELECTION BAR 5 OF POPUP 基础资料j       
 *       *                                                         
 *       * Procedure Origin:                                       
 *       *                                                         
@@ -289,7 +293,7 @@ do form ..\forms\客户查询.scx
 *       *                                                         
 *       *********************************************************
 *
-PROCEDURE _5dj0ziazy
+PROCEDURE _5mb17ccm6
 CLOSE ALL
 
 FOR EACH FF IN _SCREEN.Forms
@@ -302,7 +306,7 @@ do form ..\forms\供应商录入.scx
 
 *       *********************************************************
 *       *                                                         
-*       * _5DJ0ZIAZZ  ON SELECTION BAR 6 OF POPUP 基础资料j       
+*       * _5MB17CCM7  ON SELECTION BAR 6 OF POPUP 基础资料j       
 *       *                                                         
 *       * Procedure Origin:                                       
 *       *                                                         
@@ -313,7 +317,7 @@ do form ..\forms\供应商录入.scx
 *       *                                                         
 *       *********************************************************
 *
-PROCEDURE _5dj0ziazz
+PROCEDURE _5mb17ccm7
 CLOSE ALL
 
 FOR EACH FF IN _SCREEN.Forms
@@ -326,7 +330,7 @@ do form ..\forms\供应商查询.scx
 
 *       *********************************************************
 *       *                                                         
-*       * _5DJ0ZIB00  ON SELECTION BAR 8 OF POPUP 基础资料j       
+*       * _5MB17CCM8  ON SELECTION BAR 8 OF POPUP 基础资料j       
 *       *                                                         
 *       * Procedure Origin:                                       
 *       *                                                         
@@ -337,7 +341,7 @@ do form ..\forms\供应商查询.scx
 *       *                                                         
 *       *********************************************************
 *
-PROCEDURE _5dj0zib00
+PROCEDURE _5mb17ccm8
 CLOSE ALL
 
 FOR EACH FF IN _SCREEN.Forms
@@ -350,7 +354,7 @@ do form ..\forms\类别设置.scx
 
 *       *********************************************************
 *       *                                                         
-*       * _5DJ0ZIB01  ON SELECTION BAR 9 OF POPUP 基础资料j       
+*       * _5MB17CCM9  ON SELECTION BAR 9 OF POPUP 基础资料j       
 *       *                                                         
 *       * Procedure Origin:                                       
 *       *                                                         
@@ -361,7 +365,7 @@ do form ..\forms\类别设置.scx
 *       *                                                         
 *       *********************************************************
 *
-PROCEDURE _5dj0zib01
+PROCEDURE _5mb17ccm9
 CLOSE ALL
 
 FOR EACH FF IN _SCREEN.Forms
@@ -374,7 +378,7 @@ do form ..\forms\产品代码录入.scx
 
 *       *********************************************************
 *       *                                                         
-*       * _5DJ0ZIB02  ON SELECTION BAR 10 OF POPUP 基础资料j      
+*       * _5MB17CCMA  ON SELECTION BAR 10 OF POPUP 基础资料j      
 *       *                                                         
 *       * Procedure Origin:                                       
 *       *                                                         
@@ -385,7 +389,7 @@ do form ..\forms\产品代码录入.scx
 *       *                                                         
 *       *********************************************************
 *
-PROCEDURE _5dj0zib02
+PROCEDURE _5mb17ccma
 CLOSE ALL
 
 FOR EACH FF IN _SCREEN.Forms
@@ -398,7 +402,7 @@ do form ..\forms\产品代码查询.scx
 
 *       *********************************************************
 *       *                                                         
-*       * _5DJ0ZIB03  ON SELECTION BAR 2 OF POPUP 库存管理k       
+*       * _5MB17CCMB  ON SELECTION BAR 2 OF POPUP 库存管理k       
 *       *                                                         
 *       * Procedure Origin:                                       
 *       *                                                         
@@ -409,7 +413,7 @@ do form ..\forms\产品代码查询.scx
 *       *                                                         
 *       *********************************************************
 *
-PROCEDURE _5dj0zib03
+PROCEDURE _5mb17ccmb
 CLOSE ALL
 
 FOR EACH FF IN _SCREEN.Forms
@@ -422,7 +426,7 @@ do form ..\forms\仓库号设置.scx
 
 *       *********************************************************
 *       *                                                         
-*       * _5DJ0ZIB04  ON SELECTION BAR 4 OF POPUP 库存管理k       
+*       * _5MB17CCMD  ON SELECTION BAR 4 OF POPUP 库存管理k       
 *       *                                                         
 *       * Procedure Origin:                                       
 *       *                                                         
@@ -433,7 +437,7 @@ do form ..\forms\仓库号设置.scx
 *       *                                                         
 *       *********************************************************
 *
-PROCEDURE _5dj0zib04
+PROCEDURE _5mb17ccmd
 CLOSE ALL
 
 FOR EACH FF IN _SCREEN.Forms
@@ -501,7 +505,7 @@ ENDIF
 
 *       *********************************************************
 *       *                                                         
-*       * _5DJ0ZIB05  ON SELECTION BAR 5 OF POPUP 库存管理k       
+*       * _5MB17CCME  ON SELECTION BAR 5 OF POPUP 库存管理k       
 *       *                                                         
 *       * Procedure Origin:                                       
 *       *                                                         
@@ -512,7 +516,7 @@ ENDIF
 *       *                                                         
 *       *********************************************************
 *
-PROCEDURE _5dj0zib05
+PROCEDURE _5mb17ccme
 CLOSE ALL
 
 FOR EACH FF IN _SCREEN.Forms
@@ -525,7 +529,7 @@ DO FORM ..\forms\入库查询.scx
 
 *       *********************************************************
 *       *                                                         
-*       * _5DJ0ZIB06  ON SELECTION BAR 7 OF POPUP 库存管理k       
+*       * _5MB17CCMF  ON SELECTION BAR 7 OF POPUP 库存管理k       
 *       *                                                         
 *       * Procedure Origin:                                       
 *       *                                                         
@@ -536,7 +540,7 @@ DO FORM ..\forms\入库查询.scx
 *       *                                                         
 *       *********************************************************
 *
-PROCEDURE _5dj0zib06
+PROCEDURE _5mb17ccmf
 CLOSE ALL
 
 FOR EACH FF IN _SCREEN.Forms
@@ -549,7 +553,7 @@ do form ..\forms\当前库存查询.scx
 
 *       *********************************************************
 *       *                                                         
-*       * _5DJ0ZIB07  ON SELECTION BAR 9 OF POPUP 库存管理k       
+*       * _5MB17CCMG  ON SELECTION BAR 9 OF POPUP 库存管理k       
 *       *                                                         
 *       * Procedure Origin:                                       
 *       *                                                         
@@ -560,7 +564,7 @@ do form ..\forms\当前库存查询.scx
 *       *                                                         
 *       *********************************************************
 *
-PROCEDURE _5dj0zib07
+PROCEDURE _5mb17ccmg
 CLOSE ALL
 
 FOR EACH FF IN _SCREEN.Forms
@@ -628,7 +632,7 @@ ENDIF
 
 *       *********************************************************
 *       *                                                         
-*       * _5DJ0ZIB08  ON SELECTION BAR 10 OF POPUP 库存管理k      
+*       * _5MB17CCMI  ON SELECTION BAR 10 OF POPUP 库存管理k      
 *       *                                                         
 *       * Procedure Origin:                                       
 *       *                                                         
@@ -639,7 +643,7 @@ ENDIF
 *       *                                                         
 *       *********************************************************
 *
-PROCEDURE _5dj0zib08
+PROCEDURE _5mb17ccmi
 CLOSE ALL
 
 FOR EACH FF IN _SCREEN.Forms
@@ -652,18 +656,42 @@ do form ..\forms\出库查询.scx
 
 *       *********************************************************
 *       *                                                         
-*       * _5DJ0ZIB09  ON SELECTION BAR 2 OF POPUP 财务管理c       
+*       * _5MB17CCMJ  ON SELECTION BAR 11 OF POPUP 库存管理k      
 *       *                                                         
 *       * Procedure Origin:                                       
 *       *                                                         
-*       * From Menu:  EBJXC.MPR,            Record:   57          
-*       * Called By:  ON SELECTION BAR 2 OF POPUP 财务管理c       
-*       * Prompt:     收录录入                                    
+*       * From Menu:  EBJXC.MPR,            Record:   51          
+*       * Called By:  ON SELECTION BAR 11 OF POPUP 库存管理k      
+*       * Prompt:     出库录入转开                                
 *       * Snippet:    15                                          
 *       *                                                         
 *       *********************************************************
 *
-PROCEDURE _5dj0zib09
+PROCEDURE _5mb17ccmj
+CLOSE ALL
+
+FOR EACH FF IN _SCREEN.Forms
+FF.RELEASE
+NEXT
+
+do form ..\forms\Main.scx
+do form ..\forms\出库录入打印-转开.scx
+
+
+*       *********************************************************
+*       *                                                         
+*       * _5MB17CCML  ON SELECTION BAR 2 OF POPUP 财务管理c       
+*       *                                                         
+*       * Procedure Origin:                                       
+*       *                                                         
+*       * From Menu:  EBJXC.MPR,            Record:   58          
+*       * Called By:  ON SELECTION BAR 2 OF POPUP 财务管理c       
+*       * Prompt:     收录录入                                    
+*       * Snippet:    16                                          
+*       *                                                         
+*       *********************************************************
+*
+PROCEDURE _5mb17ccml
 CLOSE ALL
 
 FOR EACH FF IN _SCREEN.Forms
@@ -677,18 +705,18 @@ DO FORM ..\forms\收据录入.scx
 
 *       *********************************************************
 *       *                                                         
-*       * _5DJ0ZIB0A  ON SELECTION BAR 3 OF POPUP 财务管理c       
+*       * _5MB17CCMM  ON SELECTION BAR 3 OF POPUP 财务管理c       
 *       *                                                         
 *       * Procedure Origin:                                       
 *       *                                                         
-*       * From Menu:  EBJXC.MPR,            Record:   58          
+*       * From Menu:  EBJXC.MPR,            Record:   59          
 *       * Called By:  ON SELECTION BAR 3 OF POPUP 财务管理c       
 *       * Prompt:     收据查询                                    
-*       * Snippet:    16                                          
+*       * Snippet:    17                                          
 *       *                                                         
 *       *********************************************************
 *
-PROCEDURE _5dj0zib0a
+PROCEDURE _5mb17ccmm
 CLOSE ALL
 
 FOR EACH FF IN _SCREEN.Forms
@@ -702,18 +730,18 @@ DO FORM ..\forms\收据查询.scx
 
 *       *********************************************************
 *       *                                                         
-*       * _5DJ0ZIB0B  ON SELECTION BAR 4 OF POPUP 财务管理c       
+*       * _5MB17CCMO  ON SELECTION BAR 4 OF POPUP 财务管理c       
 *       *                                                         
 *       * Procedure Origin:                                       
 *       *                                                         
-*       * From Menu:  EBJXC.MPR,            Record:   59          
+*       * From Menu:  EBJXC.MPR,            Record:   60          
 *       * Called By:  ON SELECTION BAR 4 OF POPUP 财务管理c       
 *       * Prompt:     应收款查询                                  
-*       * Snippet:    17                                          
+*       * Snippet:    18                                          
 *       *                                                         
 *       *********************************************************
 *
-PROCEDURE _5dj0zib0b
+PROCEDURE _5mb17ccmo
 CLOSE ALL
 
 FOR EACH FF IN _SCREEN.Forms
@@ -726,18 +754,18 @@ DO FORM ..\forms\应收款查询.scx
 
 *       *********************************************************
 *       *                                                         
-*       * _5DJ0ZIB0C  ON SELECTION BAR 6 OF POPUP 财务管理c       
+*       * _5MB17CCMP  ON SELECTION BAR 6 OF POPUP 财务管理c       
 *       *                                                         
 *       * Procedure Origin:                                       
 *       *                                                         
-*       * From Menu:  EBJXC.MPR,            Record:   62          
+*       * From Menu:  EBJXC.MPR,            Record:   63          
 *       * Called By:  ON SELECTION BAR 6 OF POPUP 财务管理c       
 *       * Prompt:     付款单录入                                  
-*       * Snippet:    18                                          
+*       * Snippet:    19                                          
 *       *                                                         
 *       *********************************************************
 *
-PROCEDURE _5dj0zib0c
+PROCEDURE _5mb17ccmp
 CLOSE ALL
 
 FOR EACH FF IN _SCREEN.Forms
@@ -751,18 +779,18 @@ DO FORM ..\forms\付款录入.scx
 
 *       *********************************************************
 *       *                                                         
-*       * _5DJ0ZIB0D  ON SELECTION BAR 7 OF POPUP 财务管理c       
+*       * _5MB17CCMQ  ON SELECTION BAR 7 OF POPUP 财务管理c       
 *       *                                                         
 *       * Procedure Origin:                                       
 *       *                                                         
-*       * From Menu:  EBJXC.MPR,            Record:   63          
+*       * From Menu:  EBJXC.MPR,            Record:   64          
 *       * Called By:  ON SELECTION BAR 7 OF POPUP 财务管理c       
 *       * Prompt:     付款单查询                                  
-*       * Snippet:    19                                          
+*       * Snippet:    20                                          
 *       *                                                         
 *       *********************************************************
 *
-PROCEDURE _5dj0zib0d
+PROCEDURE _5mb17ccmq
 CLOSE ALL
 
 FOR EACH FF IN _SCREEN.Forms
@@ -776,18 +804,18 @@ DO FORM ..\forms\付款查询.scx
 
 *       *********************************************************
 *       *                                                         
-*       * _5DJ0ZIB0E  ON SELECTION BAR 8 OF POPUP 财务管理c       
+*       * _5MB17CCMS  ON SELECTION BAR 8 OF POPUP 财务管理c       
 *       *                                                         
 *       * Procedure Origin:                                       
 *       *                                                         
-*       * From Menu:  EBJXC.MPR,            Record:   64          
+*       * From Menu:  EBJXC.MPR,            Record:   65          
 *       * Called By:  ON SELECTION BAR 8 OF POPUP 财务管理c       
 *       * Prompt:     应付款查询                                  
-*       * Snippet:    20                                          
+*       * Snippet:    21                                          
 *       *                                                         
 *       *********************************************************
 *
-PROCEDURE _5dj0zib0e
+PROCEDURE _5mb17ccms
 CLOSE ALL
 
 FOR EACH FF IN _SCREEN.Forms
@@ -801,18 +829,18 @@ DO FORM ..\forms\应付款查询.scx
 
 *       *********************************************************
 *       *                                                         
-*       * _5DJ0ZIB0F  ON SELECTION BAR 2 OF POPUP 转仓盘点z       
+*       * _5MB17CCMT  ON SELECTION BAR 2 OF POPUP 转仓盘点z       
 *       *                                                         
 *       * Procedure Origin:                                       
 *       *                                                         
-*       * From Menu:  EBJXC.MPR,            Record:   71          
+*       * From Menu:  EBJXC.MPR,            Record:   72          
 *       * Called By:  ON SELECTION BAR 2 OF POPUP 转仓盘点z       
 *       * Prompt:     转仓录入                                    
-*       * Snippet:    21                                          
+*       * Snippet:    22                                          
 *       *                                                         
 *       *********************************************************
 *
-PROCEDURE _5dj0zib0f
+PROCEDURE _5mb17ccmt
 CLOSE ALL
 
 FOR EACH FF IN _SCREEN.Forms
@@ -825,18 +853,18 @@ do form ..\forms\转仓录入.scx
 
 *       *********************************************************
 *       *                                                         
-*       * _5DJ0ZIB0G  ON SELECTION BAR 3 OF POPUP 转仓盘点z       
+*       * _5MB17CCMU  ON SELECTION BAR 3 OF POPUP 转仓盘点z       
 *       *                                                         
 *       * Procedure Origin:                                       
 *       *                                                         
-*       * From Menu:  EBJXC.MPR,            Record:   72          
+*       * From Menu:  EBJXC.MPR,            Record:   73          
 *       * Called By:  ON SELECTION BAR 3 OF POPUP 转仓盘点z       
 *       * Prompt:     转仓查询                                    
-*       * Snippet:    22                                          
+*       * Snippet:    23                                          
 *       *                                                         
 *       *********************************************************
 *
-PROCEDURE _5dj0zib0g
+PROCEDURE _5mb17ccmu
 CLOSE ALL
 
 FOR EACH FF IN _SCREEN.Forms
@@ -849,18 +877,18 @@ do form ..\forms\转仓查询.scx
 
 *       *********************************************************
 *       *                                                         
-*       * _5DJ0ZIB0H  ON SELECTION BAR 5 OF POPUP 转仓盘点z       
+*       * _5MB17CCMW  ON SELECTION BAR 5 OF POPUP 转仓盘点z       
 *       *                                                         
 *       * Procedure Origin:                                       
 *       *                                                         
-*       * From Menu:  EBJXC.MPR,            Record:   75          
+*       * From Menu:  EBJXC.MPR,            Record:   76          
 *       * Called By:  ON SELECTION BAR 5 OF POPUP 转仓盘点z       
 *       * Prompt:     盘点录入                                    
-*       * Snippet:    23                                          
+*       * Snippet:    24                                          
 *       *                                                         
 *       *********************************************************
 *
-PROCEDURE _5dj0zib0h
+PROCEDURE _5mb17ccmw
 CLOSE ALL
 
 FOR EACH FF IN _SCREEN.Forms
@@ -873,18 +901,18 @@ do form ..\forms\盘点录入.scx
 
 *       *********************************************************
 *       *                                                         
-*       * _5DJ0ZIB0I  ON SELECTION BAR 6 OF POPUP 转仓盘点z       
+*       * _5MB17CCMX  ON SELECTION BAR 6 OF POPUP 转仓盘点z       
 *       *                                                         
 *       * Procedure Origin:                                       
 *       *                                                         
-*       * From Menu:  EBJXC.MPR,            Record:   76          
+*       * From Menu:  EBJXC.MPR,            Record:   77          
 *       * Called By:  ON SELECTION BAR 6 OF POPUP 转仓盘点z       
 *       * Prompt:     盘点查询                                    
-*       * Snippet:    24                                          
+*       * Snippet:    25                                          
 *       *                                                         
 *       *********************************************************
 *
-PROCEDURE _5dj0zib0i
+PROCEDURE _5mb17ccmx
 CLOSE ALL
 
 FOR EACH FF IN _SCREEN.Forms
